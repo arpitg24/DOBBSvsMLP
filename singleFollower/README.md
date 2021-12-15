@@ -15,5 +15,6 @@ In this method we create two models named leader and follower with their corresp
 
 ### Multiple LPs method
 In this method we create a single model named LP and the program outputs the leader's strategy. 
+
 ![Screenshot from 2021-12-15 21-53-53](https://user-images.githubusercontent.com/52707368/146224697-9c5fb13a-815a-41da-9143-eeb2c3f32e85.png)
 
