@@ -9,7 +9,8 @@ Security agent's set of pure strategies consists fo d houses to patrol in order 
 The reward for the leader and the follower are described in a payoff matrix with a higher reward for the leader if it catches the follower early on in its patrol path.
 
 ### DOBBS method
-In this method we create two models named leader and follower with their corresponding LPs. The program outputs the payoff matrix as well as the probability for using each strategy for leader and follower
+In this method we create two models named leader and follower with their corresponding LPs. The program outputs the payoff matrix as well as the probability for using each strategy for leader and follower.
+
 ![Screenshot from 2021-12-15 21-52-12](https://user-images.githubusercontent.com/52707368/146224623-48e4fc07-aaab-4b0a-894f-b2d60ce29f6b.png)
 
 
