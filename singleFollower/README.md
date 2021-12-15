@@ -2,7 +2,7 @@
 
 ## Problem description
 
-The game consists of two agents of single type: leader(security agent) and follower(robber).The world is represented by m houses numbered 1 ... m . The robber attempts to steal goods from a house and the security agents patrols the world.
+The game consists of two agents of single type: leader(security agent) and follower(robber).The world is represented by m houses numbered 1 through m . The robber attempts to steal goods from a house and the security agents patrols the world.
 
 Security agent's set of pure strategies consists fo d houses to patrol in order without visiting the same house twice. Robber's set of pure strategies consists of houses for a robbery attempt.
 
