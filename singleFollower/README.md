@@ -9,9 +9,9 @@ Security agent's set of pure strategies consists fo d houses to patrol in order 
 The reward for the leader and the follower are described in a payoff matrix with a higher reward for the leader if it catches the follower early on in its patrol path.
 
 ### Input method
-Provide input to he programs using an input file (input.txt).
-For eg. python3 multipleLP.py < input.txt 
-the input file must be in the following format:
+Provide input to he programs using an input file (input.txt). <br />
+For eg. python3 multipleLP.py < input.txt <br />
+the input file must be in the following format:<br />
 * number of houses(m)
 * number of houses for the leader to patrol in one pure strategy
 * value of goods in each house for leader(space seperated integers containing m entries)
