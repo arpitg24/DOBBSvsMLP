@@ -1,43 +1,14 @@
 import numpy as np
 from docplex.mp.model import Model	
 
-# m = input() #number of houses
-# m = int(m)
+m = int(input()) #number of houses
+d = int(input()) #number of houses to patrol in one pure strategy
 
-# d = input() #number of houses to patrol in one pure strategy
-# d = int(d)
-
-# Vx = []  #value of goods in each house for leader
-
-# for i in range(m):
-# 	temp = input()
-# 	Vx.append(int(temp))
-
-# Vx = np.array(Vx)
-# print(Vx)
-
-# Vq = []  #value of goods in each house for follower
-
-# for i in range(m):
-# 	temp = input()
-# 	Vq.append(int(temp))
-
-# cx = input() #reward to the leader for catching the follower
-# cx = int(cx) 
-
-# cq = input() #cost to the follower for getting caught
-# cq = int(cq)
-
-m = 2 #number of houses
-d = 1 #number of houses to patrol in one pure strategy
-
-Vx = np.array([10,10]) #value of goods in each house for leader
-Vq = np.array([10,10]) #value of goods in each house for follower
-cx = 100 #reward to the leader for catching the follower
-cq = 100 #cost to the follower for getting caught
-py = np.array([0.50,0.25]) #probability of getting caught
-X = np.array([1,2]) #leader routes
-Q = np.array([1,2]) #follower routes
+Vx = np.array([int(x) for x in input().split()]) #value of goods in each house for leader
+Vq = np.array([int(q) for q in input().split()]) #value of goods in each house for follower
+cx = int(input()) #reward to the leader for catching the follower
+cq = int(input()) #cost to the follower for getting caught
+py = np.array([float(p) for p in input().split()]) #probability of getting caught
 
 #leader pycx + (1−py)(−vy,x),
 #follower −pycq + (1−py)(vy,q)
