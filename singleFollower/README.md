@@ -11,7 +11,7 @@ The reward for the leader and the follower are described in a payoff matrix with
 ### Input method
 Provide input to he programs using an input file (input.txt) <br />
 For eg. python3 multipleLP.py < input.txt <br />
-the input file must be in the following format:<br />
+The input file must be in the following format:
 * number of houses(m)
 * number of houses for the leader to patrol in one pure strategy
 * value of goods in each house for leader(space seperated integers containing m entries)
