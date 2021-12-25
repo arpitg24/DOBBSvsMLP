@@ -1,4 +1,5 @@
 import numpy as np
+from itertools import permutations	
 from docplex.mp.model import Model	
 
 m = int(input()) #number of houses
@@ -9,6 +10,12 @@ Vq = np.array([int(q) for q in input().split()]) #value of goods in each house f
 cx = int(input()) #reward to the leader for catching the follower
 cq = int(input()) #cost to the follower for getting caught
 py = np.array([float(p) for p in input().split()]) #probability of getting caught
+X = np.full((d),1)
+z = np.zeros((m-d))
+X = np.append(X,z)
+strats = set(permutations(X))
+strats = list(strats)
+strats_size = len(strats)
 
 #leader pycx + (1−py)(−vy,x),
 #follower −pycq + (1−py)(vy,q)
@@ -16,17 +23,20 @@ py = np.array([float(p) for p in input().split()]) #probability of getting caugh
 #leader		1 	        2
 #	1              (-V2x,V2q)
 #	2 	(-V1x,V1q) 
-R = np.zeros((2,2,2)) #payoff matrix
+
+R = np.zeros((strats_size,m,2)) #payoff matrix
 R_l = np.size(R,0) #dimension for leader
-R_f = np.size(R,1)  #dimnesion for follower
-for i in range(R_l):
-	for j in range(R_f):
-		if(i==j):
-			R[i][j][0] = py[j]*cx + (1-py[j])*(-Vx[j])
-			R[i][j][1] = -py[j]*cq + (1-py[j])*(Vq[j])
+R_f = np.size(R,1)  #dimension for follower
+
+for strat in range(R_l):		 
+	for house in range(R_f):
+		print(strats[house])
+		if(strats[strat][house]==1):
+			R[strat][house][0] = py[house]*cx + (1-py[house])*(-Vx[house])
+			R[strat][house][1] = -py[house]*cq + (1-py[house])*(Vq[house])
 		else:
-			R[i][j][0] = -Vx[j]
-			R[i][j][1] = Vq[j]
+			R[strat][house][0] = -Vx[house]
+			R[strat][house][1] = Vq[house]
 
 print('PayOff Matrix: ')
 print(R)
@@ -43,7 +53,9 @@ mdl_lead.maximize(mdl_lead.sum(R[i][np.argmax(R[i][:][1])][0]*q[np.argmax(R[i][:
 sols_lead = mdl_lead.solve()
 print(sols_lead)
 
-x = [sols_lead['x_0'],sols_lead['x_1']] #leaders pure strategy
+x = []
+for i in range(R_l):
+	x.append(sols_lead['x_{}'.format(i)])
 
 mdl_fol = Model(name='follower')
 
