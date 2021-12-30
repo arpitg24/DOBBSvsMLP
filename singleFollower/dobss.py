@@ -16,6 +16,7 @@ X = np.append(X,z)
 strats = set(permutations(X))
 strats = list(strats)
 strats_size = len(strats)
+print(strats)
 
 #leader pycx + (1−py)(−vy,x),
 #follower −pycq + (1−py)(vy,q)
@@ -30,7 +31,6 @@ R_f = np.size(R,1)  #dimension for follower
 
 for strat in range(R_l):		 
 	for house in range(R_f):
-		print(strats[house])
 		if(strats[strat][house]==1):
 			R[strat][house][0] = py[house]*cx + (1-py[house])*(-Vx[house])
 			R[strat][house][1] = -py[house]*cq + (1-py[house])*(Vq[house])
