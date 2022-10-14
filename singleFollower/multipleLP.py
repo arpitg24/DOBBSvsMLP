@@ -1,7 +1,7 @@
 import numpy as np
 from itertools import permutations	
 from docplex.mp.model import Model	
-
+#hello
 m = int(input()) #number of houses
 d = int(input()) #number of houses to patrol in one pure strategy
 
